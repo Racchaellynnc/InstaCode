@@ -30,17 +30,12 @@ const IntroScreen = ({navigation}) => {
             <View style={styles.button}>
             <TouchableOpacity onPress={() => navigation.navigate('SignInScreen')}>
                 <LinearGradient 
-                    colors={['white', '#fbdbf3']}
+                    colors={['#0f9696', '#00696a']}
                     style={styles.signIn}
                 >
                     <Text style={styles.textSign}>
-                        Get Started
+                        Sign In
                     </Text>
-                    <Icon
-                        name="arrow-forward-outline"
-                        color="#00696A"
-                        size={22}
-                    />
                 </LinearGradient>
             </TouchableOpacity>
             </View>
@@ -52,15 +47,15 @@ const IntroScreen = ({navigation}) => {
 export default IntroScreen;
 
 const {height} = Dimensions.get("screen");
-const height_logo = height * 0.20;
+const height_logo = height * 0.22;
 
   const styles = StyleSheet.create({
     container: {
       flex: 1, 
-      backgroundColor: '#FBDBF3'
+      backgroundColor: '#c5f9f4'
     },
     header: {
-        flex: 3,
+        flex: 4,
         justifyContent: 'center',
         alignItems: 'center'
     },
@@ -68,13 +63,17 @@ const height_logo = height * 0.20;
         flex: 1,
         alignItems: 'center',
         backgroundColor: '#fff',
-        marginBottom: 73,
-        margin: 20,
-        shadowColor: '#d1c2cd',
-        shadowRadius: 9,
+        // marginBottom: 27,
+        // margin: 10,
+        shadowColor: '#999',
+        shadowRadius: 7,
+        shadowOffset: {
+            height: 2,
+            width: 0
+        },
         shadowOpacity: 1,
         borderRadius: 10,
-        paddingVertical: 50,
+        paddingVertical: 40,
         paddingHorizontal: 30,
     },
     logo: {
@@ -110,7 +109,7 @@ const height_logo = height * 0.20;
         flexDirection: 'row'
     },
     textSign: {
-        color: '#00696A',
+        color: 'white',
         fontWeight: 'bold'
     }
   });

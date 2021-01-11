@@ -44,7 +44,7 @@ const SignInScreen = () => {
     return (
      <View style={styles.container} >
         <View style={styles.header} >
-            <Text style={styles.text_header} > Help save the world by planting trees <Icon name="earth-outline" size={30} /></Text>
+            <Text style={styles.text_header} > Save the world by planting trees <Icon name="earth-outline" size={30} /></Text>
         </View>
         <View style={styles.footer} >
             <Text style={styles.text_footer} >Email</Text>
@@ -95,7 +95,7 @@ const SignInScreen = () => {
   const styles = StyleSheet.create({
     container: {
       flex: 1, 
-      backgroundColor: '#009387'
+      backgroundColor: '#c5f9f4'
     },
     header: {
         flex: 1,
@@ -113,7 +113,7 @@ const SignInScreen = () => {
         paddingVertical: 30
     },
     text_header: {
-        color: '#fff',
+        color: '#00696a',
         textAlign: 'center',
         fontWeight: 'bold',
         fontSize: 30
