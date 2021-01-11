@@ -9,12 +9,12 @@ import {
 
 
 
-const ProfileScreen = ({navigation}) => {
+const ExploreScreen = ({navigation}) => {
     return (
      <View style={styles.container} >
-       <Text>Profile Screen</Text>
+       <Text>Explore Screen</Text>
           <Button title="Go to Homepage"
-                onPress={() => navigation.navigate("home")}/>  
+                onPress={() => navigation.navigate("home")}/>
      </View>
     );
   };
@@ -27,4 +27,4 @@ const ProfileScreen = ({navigation}) => {
       },
   });
 
-  export default ProfileScreen;
+  export default ExploreScreen;
