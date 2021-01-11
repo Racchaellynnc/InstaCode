@@ -1,4 +1,5 @@
 import React from 'react';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import {
   View,
@@ -7,13 +8,13 @@ import {
   StyleSheet,
 } from 'react-native';
 
-
 const HomeScreen = ({navigation}) => {
     return (
      <View style={styles.container} >
-       <Text>HomeScreen</Text> 
+       <Text>Home Screen</Text> 
           <Button title="Your Profile Page"
-                onPress={() => navigation.navigate("profile")}/>      
+            onPress={() => navigation.navigate("profile")}
+          />      
      </View>
     );
   };
