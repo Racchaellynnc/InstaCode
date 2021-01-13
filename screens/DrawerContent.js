@@ -9,8 +9,9 @@ import {
     Drawer,
     Text,
     TouchableRipple,
-    Switch
+    Switch,
 } from 'react-native-paper';
+
 import {
     DrawerContentScrollView,
     DrawerItem
