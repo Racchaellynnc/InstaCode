@@ -8,7 +8,12 @@ import SignUpScreen from './SignUpScreen';
 
 const RootStack = createStackNavigator();
 
-const RootStackScreen = ({navigation}) => (
+interface Props {
+    navigation: any;
+    RootStackScreen: any;
+  }
+
+const RootStackScreen: React.FC<Props> = (props) => (
     <RootStack.Navigator headerMode='none'>
         <RootStack.Screen name="IntroScreen" component={IntroScreen} />
         <RootStack.Screen name="SignInScreen" component={SignInScreen}/>
