@@ -2,6 +2,7 @@ import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
+import { AuthContext } from '../components/context';
 import {
   View,
   Text,
@@ -42,6 +43,8 @@ const SignInScreen: React.FC<Props> = (props):  JSX.Element => {
         isValidPassword: true,
     });
 
+    const { signIn } = React.useContext(AuthContext);
+
     const textInputChange = (val: string) => {
         if( val.trim().length >= 4 ) {
             setData({
@@ -72,6 +75,10 @@ const SignInScreen: React.FC<Props> = (props):  JSX.Element => {
             ...data,
             secureTextEntry: !data.secureTextEntry,
         })
+    }
+
+    const loginHandle = (username, password) => {
+        signIn(username, password);
     }
 
     return (   
@@ -133,6 +140,10 @@ const SignInScreen: React.FC<Props> = (props):  JSX.Element => {
                 </TouchableOpacity>
                 </View>
                 <View style={styles.button}>
+                    <TouchableOpacity 
+                        style={styles.signIn}
+                        onPress={() => {loginHandle( data.username, data.password )}}
+                    >
                     <LinearGradient
                     colors={['#3DCC8E', '#00C68E']}
                     style={[styles.signIn, {
@@ -143,9 +154,10 @@ const SignInScreen: React.FC<Props> = (props):  JSX.Element => {
                     >
                     <Text style={styles.textSign}>Sign In</Text>
                     </LinearGradient>
+                    </TouchableOpacity>
                     <TouchableOpacity
-                        onPress={() => navigation.navigate('SignUpScreen')}
-                        style={[styles.signIn, {
+                            onPress={() => navigation.navigate('SignUpScreen')}
+                            style={[styles.signIn, {
                             borderColor: '#03b898',
                             backgroundColor: 'white',
                             borderWidth: 1,

@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { AuthContext } from '../components/context';
 import {
     Avatar,
     Title,
@@ -22,6 +23,8 @@ Icon.loadFont();
 export function DrawerContent(props) {
 
     const [isDarkMode, setDarkMode] = React.useState(false);
+
+    const { signOut } = React.useContext(AuthContext);
 
     const toggleTheme = () => {
         setDarkMode(!isDarkMode);
@@ -135,7 +138,7 @@ export function DrawerContent(props) {
                         />
                     )}
                     label="Sign Out"
-                    onPress={() => {}}
+                    onPress={() => {signOut()}}
                 />
             </Drawer.Section>
         </View>

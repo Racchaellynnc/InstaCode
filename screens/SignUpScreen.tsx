@@ -2,6 +2,7 @@ import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
+import { AuthContext } from '../components/context';
 import {
   View,
   Text,
@@ -33,6 +34,7 @@ Icon.loadFont();
 
 const SignUpScreen: React.FC<Props> = (props):  JSX.Element => {
     const navigation = useNavigation(); 
+
     const [data, setData] = React.useState({
         username: '',
         password: '',
