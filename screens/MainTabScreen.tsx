@@ -7,29 +7,45 @@ import SettingsScreen from './SettingsScreen';
 import ProfileScreen from './ProfileScreen';
 import ExploreScreen from './ExploreScreen';
 import MessagesScreen from './MessagesScreen';
-
+import DrawerContent from './DrawerContent';
+import {
+  ViewStyle,
+  TextStyle,
+  StyleProp,
+} from 'react-native';
 const HomeStack = createStackNavigator();
 const ProfileStack = createStackNavigator();
-
 const Tab = createMaterialBottomTabNavigator();
 
 Icon.loadFont();
 
-const MainTabScreen = () => {
+interface Props {
+  val: string;
+  iconStyles: any;
+  textHeader?: StyleProp<TextStyle>;
+  textFooter?: StyleProp<TextStyle>;
+  action?: StyleProp<ViewStyle>;
+  footer?: StyleProp<ViewStyle>;
+  container?: StyleProp<ViewStyle>;
+  header?: StyleProp<TextStyle>;
+  textInput?: StyleProp<TextStyle>;
+}
+
+const MainTabScreen: React.FC<Props> = (props, navigation): JSX.Element => {
     return (
       <Tab.Navigator
         initialRouteName="home"
-        activeColor="#e91e63"
-        style={{ backgroundColor: 'tomato' }}
+        activeColor="#4a4a4a"
+        style={{ backgroundColor: '#4a4a4a' }}
       >
       <Tab.Screen
         name="home"
         component={HomeStackScreen}
         options={{
           tabBarLabel: 'Home',
-          tabBarColor: '#FAD7DB',
+          tabBarColor: '#fff',
           tabBarIcon: ({ color }) => (
-            <Icon name="home-outline" color={'#15A290'} size={26} />
+            <Icon name="home-outline" color={'#03B898'} size={26} />
           ),
         }}
       />
@@ -38,9 +54,9 @@ const MainTabScreen = () => {
         component={ExploreScreen}
         options={{
           tabBarLabel: 'Explore',
-          tabBarColor: '#FAD7DB',
+          tabBarColor: '#fff',
           tabBarIcon: ({ color }) => (
-            <Icon name="map-outline" color={'#15A290'} size={26} />
+            <Icon name="map-outline" color={'#03B898'} size={26} />
           ),
         }}
       />
@@ -49,9 +65,9 @@ const MainTabScreen = () => {
         component={MessagesScreen}
         options={{
           tabBarLabel: 'Messages',
-          tabBarColor: '#FAD7DB',
+          tabBarColor: '#fff',
           tabBarIcon: ({ color }) => (
-            <Icon name="mail-outline" color={'#15A290'} size={26} />
+            <Icon name="mail-outline" color={'#03B898'} size={26} />
           ),
         }}
       />
@@ -60,9 +76,9 @@ const MainTabScreen = () => {
         component={SettingsScreen}
         options={{
           tabBarLabel: 'Settings',
-          tabBarColor: '#FAD7DB',
+          tabBarColor: '#fff',
           tabBarIcon: ({ color }) => (
-            <Icon name="ios-settings" color={'#15A290'} size={26} />
+            <Icon name="ios-settings" color={'#03B898'} size={26} />
           ),
         }}
       />
@@ -72,13 +88,14 @@ const MainTabScreen = () => {
 
 export default MainTabScreen;
 
-const HomeStackScreen = ({navigation}) => (
+const HomeStackScreen: React.FC<Props> = ({navigation}): JSX.Element => (
+  
     <HomeStack.Navigator screenOptions = {
       {
         headerStyle: {
-          backgroundColor: '#FAD7DB',
+          backgroundColor: '#fff',
         },
-        headerTintColor: "#15A290",
+        headerTintColor: "#03B898",
         headerTitleStyle: {
          fontWeight: "bold", 
         }
@@ -93,8 +110,8 @@ const HomeStackScreen = ({navigation}) => (
              <Icon.Button 
                  name="ios-menu" 
                  size={20} 
-                 backgroundColor="#FAD7DB" 
-                 color="#15A290" 
+                 backgroundColor="#fff" 
+                 color="#03B898" 
                  onPress={()=>{navigation.openDrawer();}}>
                </Icon.Button>
              )
@@ -102,13 +119,13 @@ const HomeStackScreen = ({navigation}) => (
      </HomeStack.Navigator>
  )
  
- const ProfileStackScreen = ({navigation}) => (
+ const ProfileStackScreen: React.FC<Props> = (props, navigation): JSX.Element => (
    <ProfileStack.Navigator screenOptions = {
      {
        headerStyle: {
          backgroundColor: '#FAD7DB',
        },
-       headerTintColor: "#15A290",
+       headerTintColor: "#03B898",
        headerTitleStyle: {
          fontWeight: "bold", 
         }
@@ -123,7 +140,7 @@ const HomeStackScreen = ({navigation}) => (
                  name="ios-menu" 
                  size={20} 
                  backgroundColor="#FAD7DB" 
-                 color="#15A290" 
+                 color="#03B898" 
                  onPress={()=>{navigation.openDrawer();}}>
                </Icon.Button>
              )
