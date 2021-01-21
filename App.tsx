@@ -7,7 +7,15 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import ProfileScreen from './screens/ProfileScreen';
 import RootStackScreen from './screens/RootStackScreen';
 import { AuthContext } from './components/context';
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+
+// Initialize Drawer Navigator
 const Drawer = createDrawerNavigator();
+// Initialize Apollo Client
+const client = new ApolloClient({
+  uri: 'localhost:4000/graphql',
+  cache: new InMemoryCache()
+});
 
 interface Props {
   navigation: any;
@@ -15,7 +23,7 @@ interface Props {
 }
 
 const App: React.FC<Props> = (props) => {
-
+  
   // const [isLoading, setIsLoading] = React.useState(true);
   // const [userToken, setUserToken] = React.useState(null);
 
@@ -117,6 +125,7 @@ const App: React.FC<Props> = (props) => {
   }
 
   return (
+  <ApolloProvider client={client}>
     <AuthContext.Provider value={authContext} >
     <NavigationContainer>
       {loginState.userToken === null ? (
@@ -129,6 +138,7 @@ const App: React.FC<Props> = (props) => {
     }
     </NavigationContainer>
     </AuthContext.Provider>
+    </ApolloProvider>
   );
 };
 
