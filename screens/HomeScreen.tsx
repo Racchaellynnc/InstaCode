@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
-import MapView from 'react-native-maps';
+import MapView, {Marker} from 'react-native-maps';
 import {
   View,
   Text,
@@ -11,15 +11,23 @@ import {
   StyleProp,
 } from 'react-native';
 
-interface Props {
-  val: string;
-  container: any;
-}
-
 const HomeScreen: React.FC<Props> = (props): JSX.Element => {
     return (
      <View style={styles.container} >
-        <MapView style={{ ...StyleSheet.absoluteFillObject }}> 
+        <MapView style={{ ...StyleSheet.absoluteFillObject }}
+        initialRegion={{
+          latitude: 37.225408,
+          longitude:-121.799551,
+          latitudeDelta: .008,
+          longitudeDelta: .8
+       }} 
+        > 
+        <Marker
+          coordinate={{ latitude: 37.225408, longitude: -121.799551 }}
+          title='Yay I did it!'
+          description='My first marker'
+        >
+   </Marker >
         </MapView>  
         <View style={styles.addTree} >
           <View style={styles.addTreeWrapper}>
@@ -32,7 +40,7 @@ const HomeScreen: React.FC<Props> = (props): JSX.Element => {
 
   const styles = StyleSheet.create({
     container: {
-      flex: 5,
+      flex: 1,
       alignItems: 'center',
       justifyContent: 'center',
     },

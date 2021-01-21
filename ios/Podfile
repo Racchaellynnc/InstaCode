@@ -8,9 +8,13 @@ target 'ReactNativeTSApp' do
   config = use_native_modules!
 
   use_react_native!(:path => config["reactNativePath"])
-
+  rn_path = '../node_modules/react-native'
+  rn_maps_path = '../node_modules/react-native-maps'
 
   pod 'react-native-maps', :path => '../node_modules/react-native-maps'
+  pod 'react-native-google-maps', :path => '../node_modules/react-native-maps'
+  pod 'GoogleMaps'
+  pod 'Google-Maps-iOS-Utils'
 
   target 'ReactNativeTSAppTests' do
     inherit! :complete
