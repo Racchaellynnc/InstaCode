@@ -64,3 +64,4 @@ buck-out/
 
 # my personal stuff
 assets/* 
+graphql/*

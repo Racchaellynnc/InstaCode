@@ -10,7 +10,6 @@ import {
   StyleProp,
 } from 'react-native';
 
-
 interface Props {
   val: string;
   iconStyles: any;
@@ -22,25 +21,21 @@ interface Props {
   header?: StyleProp<TextStyle>;
   textInput?: StyleProp<TextStyle>;
 }
-
-const SettingsScreen: React.FC<Props> = (props, navigation): JSX.Element => {
+  const SettingsScreen: React.FC<Props> = (props, navigation): JSX.Element =>{
     return (
      <View style={styles.container} >
        <Text>Setting Screen</Text>
-          <Button title="Go to Profile"
-                onPress={() => navigation.push("profile")}/>
-          <Button title="Go to Homepage"
-                onPress={() => navigation.navigate("home")}/>  
+          
      </View>
     );
   };
 
   const styles = StyleSheet.create({
-      container: {
-          flex: 1,
-          alignItems: 'center',
-          justifyContent: 'center',
-      },
-  });
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+});
 
-  export default SettingsScreen;
+export default SettingsScreen;
