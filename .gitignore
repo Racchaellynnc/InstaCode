@@ -65,3 +65,4 @@ buck-out/
 # my personal stuff
 assets/* 
 graphql/*
+App.tsx/*
